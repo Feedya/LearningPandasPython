@@ -62,5 +62,25 @@ def main():
     nombre_de_lignes_plus_de_10_francs = data[data['item_price'] > 10]
     print(len(nombre_de_lignes_plus_de_10_francs))
     
+    print("\nvoir le type de chaque colonne")
+    print(data.dtypes) 
+    
+    print("\nle nombre d arcticles moin de 10 francs?")
+    data_moin_de_10_francs = data[data['item_price'] <= 10]
+    print(len(data_moin_de_10_francs))
+    
+    print("\nle nombres article avec le nom plus long que 10 charactere")
+    nom_plus_long_que_10 = data[data['item_name'].str.len() > 10]
+    print(len(nom_plus_long_que_10))
+    
+    print("\nle nombre d article qui ont le nom plus petit que 10 charactere")
+    nom_plus_petit_que_10 = data[data['item_name'].str.len() < 10]
+    print(len(nom_plus_petit_que_10))
+    
+    print("\nle nombres d articles qui ont le nom egale a 10 charactere")
+    nom_egale_a_10 = data[data['item_name'].str.len() == 10]
+    print(len(nom_egale_a_10))
+
+
 if __name__ == "__main__":
     main()
