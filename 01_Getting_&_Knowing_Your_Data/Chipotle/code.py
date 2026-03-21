@@ -50,7 +50,7 @@ def main():
     print(data.index)
     
     print("\nla plus grosse quantity orderer")
-    index = data['quantity']
+    #index = data['quantity']
     print(data["quantity"].max())
     
     print("\nla ligne avec la plus grosse quantity")
@@ -80,6 +80,24 @@ def main():
     print("\nle nombres d articles qui ont le nom egale a 10 charactere")
     nom_egale_a_10 = data[data['item_name'].str.len() == 10]
     print(len(nom_egale_a_10))
+
+    print("\nCombien de quantity differentes il y a?")
+    plats = data.groupby('quantity')
+    print(plats.groups.keys())
+    
+    print("\nSomme de commande pour chaque plats")
+    plats = data.groupby('item_name')
+    somme_par_plats = plats['quantity'].sum()
+    print(somme_par_plats)
+    
+    print("\nall quantity")
+    all_order = data['quantity'].sum()
+    print(all_order)
+    
+    print("\nle choix le plus pris dans choice_description")
+    choice = data.groupby('choice_description')
+
+    print(choice)
 
 
 if __name__ == "__main__":
