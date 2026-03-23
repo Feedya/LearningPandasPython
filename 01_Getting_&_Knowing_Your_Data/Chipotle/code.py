@@ -1,4 +1,5 @@
 import pandas as p
+import numpy as np
 
 
 #ici data sera une DataFrame
@@ -95,10 +96,17 @@ def main():
     print(all_order)
     
     print("\nle choix le plus pris dans choice_description")
-    choice = data.groupby('choice_description')
+    most_bought = data.groupby('choice_description').sum().sort_values(['quantity'], ascending=False)
+    print(most_bought.head(1))
+    
+    
+    print("\nle nombre de items acheter au total")    
+    total = data.quantity.sum()
+    print(total)
+    
+    revenue = (data['quantity']* data['item_price']).sum()
 
-    print(choice)
-
+    print('Revenue was: $' + str(np.round(revenue,2)))
 
 if __name__ == "__main__":
     main()
