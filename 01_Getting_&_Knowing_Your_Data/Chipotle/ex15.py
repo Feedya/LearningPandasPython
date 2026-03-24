@@ -11,6 +11,5 @@ def main():
     total = chaque_commande_mis_ensemble.count()
     print(f"total de commandes : {total}")
 
-
 if (__name__ == "__main__"):
     main()
