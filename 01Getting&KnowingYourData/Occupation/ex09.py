@@ -1,7 +1,7 @@
 import pandas as p
 
 #What is the age with least occurrence?
-#['user_id', 'age', 'gender', 'occupation', 'zip_code']
+#['user_id', 'age', 'gender', 'occupation', 'zip_code']     
 def main():
     try:
         data = p.read_csv("occupation.user", sep = '|')
